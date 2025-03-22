@@ -1,0 +1,2990 @@
+/* Import custom fonts directly */
+@font-face {
+    font-family: "Starkiller";
+    src: url("/fonts/Starkiller.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Dancing Script";
+    src: url("/fonts/DancingScript.ttf") format("truetype");
+  }
+  
+  /* Container */
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Header */
+  .header {
+    padding: 40px 20px 20px; /* Adjusted to push logo down */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(13, 13, 13, 0.95);
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+  }
+  
+  .logoContainer {
+    transition: transform 0.3s ease;
+    animation: focusLogo 2s ease-in-out forwards;
+  }
+  
+  .logoContainer:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Title with Typing Effect */
+  .title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .gangster {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    white-space: nowrap;
+    border-right: 3px solid #fff;
+    width: 0;
+    animation: typingGangster 2s steps(12) forwards, focusGangster 2s ease-in-out forwards, blink 0.8s infinite;
+  }
+  
+  .bags {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    color: #ff0000;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: signatureBags 1.5s ease-in-out forwards 2.2s;
+  }
+  
+  /* Combined Focus Animation for Logo and Gangster */
+  @keyframes focusLogo {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes focusGangster {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes typingGangster {
+    from { width: 0; }
+    to { width: 14ch; }
+  }
+  
+  @keyframes signatureBags {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+      width: 0;
+    }
+    50% {
+      opacity: 1;
+      width: 4ch;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      width: 4ch;
+    }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+  
+  /* Main */
+  .main {
+    flex: 1;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Title Container */
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    max-width: 90%;
+    font-style: italic;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Product Showcase */
+  .productShowcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+  }
+  
+  .productCardLink {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .productCard {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+  }
+  
+  .productCard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 250px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4);
+  }
+  
+  .productCard:hover img {
+    opacity: 0.9;
+  }
+  
+  .productCard p {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* View Video Button */
+  .viewVideo {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+  }
+  
+  .viewVideo:hover {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+  }
+  
+  /* Shop Now Button */
+  .shopNow {
+    position: relative;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5);
+    overflow: hidden;
+    width: 90%;
+    max-width: 300px;
+    opacity: 0;
+    animation: fadeInButton 0.5s ease-in forwards 2.2s, blinkButton 1.5s infinite 2.7s, glowPulse 2s infinite 2.7s;
+  }
+  
+  .shopNow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: tapRipple 2s infinite 2.7s;
+  }
+  
+  .shopNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.7);
+    transform: translateY(-2px);
+    animation: none;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1rem;
+    opacity: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Animations */
+  @keyframes fadeInMain {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+  }
+  
+  @keyframes fadeInButton {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes tapRipple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    50% {
+      width: 120px;
+      height: 120px;
+      opacity: 0.5;
+    }
+    100% {
+      width: 180px;
+      height: 180px;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes blinkButton {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes glowPulse {
+    0% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.7); }
+    100% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header {
+      padding: 30px 20px 15px;
+    }
+    .gangster {
+      font-size: 2rem;
+    }
+    .bags {
+      font-size: 1.6rem;
+    }
+    .tagline {
+      font-size: 1rem;
+    }
+    .productShowcase {
+      grid-template-columns: 1fr;
+      width: 90%;
+    }
+    .productCard {
+      padding: 10px;
+    }
+    .productCard img {
+      max-height: 200px;
+    }
+    .shopNow {
+      padding: 10px 20px;
+      font-size: 1rem;
+      max-width: 250px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      padding: 25px 15px 10px;
+    }
+    .gangster {
+      font-size: 1.5rem;
+    }
+    .bags {
+      font-size: 1.3rem;
+    }
+    .tagline {
+      font-size: 0.9rem;
+    }
+    .productCard p {
+      font-size: 0.9rem;
+    }
+    .shopNow {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      max-width: 200px;
+    }
+  }
+  /* Existing styles remain unchanged unless specified below */
+
+/* Video Page Container */
+/* Existing styles remain unchanged unless specified below */
+
+/* Existing styles remain unchanged unless specified below */
+
+/* Video Page Container */
+.videoPageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 20px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* Video Main */
+  .videoMain {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Video Wrapper (Optimized for 9:16 Instagram Reels Ratio) */
+  .videoWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px; /* Maintains a reasonable size for mobile viewing */
+    padding-top: 177.78%; /* Explicit 9:16 ratio (1920/1080 * 100) */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Product Video (Ensuring 9:16 Fit) */
+  .productVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the 9:16 container, cropping if necessary */
+    background: #000;
+  }
+  
+  /* Single Large Buy Now Button with Typing Effect */
+  .buyNowButton {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 40px; /* Larger padding for a bigger button */
+    font-size: 1.8rem; /* Larger font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.7);
+    z-index: 10;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 85%;
+    max-width: 450px;
+    opacity: 0.9;
+    animation: typingEffect 3s steps(7) infinite, blinkCaret 0.75s step-end infinite; /* Repeating typing effect */
+  }
+  
+  .buyNowButton:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.7), 0 0 25px rgba(255, 0, 0, 0.9);
+  }
+  
+  /* Typing Animation */
+  @keyframes typingEffect {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+  }
+  
+  @keyframes blinkCaret {
+    50% { border-right-color: transparent; }
+  }
+  
+  /* Hover Interaction */
+  .videoWrapper:hover .buyNowButton {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+  
+  .videoPageContainer::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 70%);
+    z-index: -1;
+    animation: bgPulse 10s infinite;
+  }
+  
+  @keyframes bgPulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .videoWrapper {
+      max-width: 360px;
+    }
+    .buyNowButton {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      max-width: 340px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .videoWrapper {
+      max-width: 300px;
+    }
+    .buyNowButton {
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      max-width: 280px;
+    }
+  }
+  
+  /* Existing styles (e.g., for homepage) remain unchanged */
+
+ /* Existing styles remain unchanged unless specified below */
+/* Existing styles remain unchanged unless specified below */
+
+/* Products Container */
+.productsContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* Products Main */
+  .productsMain {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Products Title (Orange Color) */
+  .productsTitle {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #ff4500; /* Changed to orange */
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.7); /* Glowing effect */
+  }
+  
+  /* Image Container (Centering Images) */
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Match image height for centering */
+    overflow: hidden;
+  }
+  
+  .imageContainer img {
+    object-fit: contain; /* Ensures image fits without cropping, centered */
+  }
+  
+  /* Products Grid */
+  .productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Product Item */
+  .productItem {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+    border-radius: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+  }
+  
+  .productItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.7);
+  }
+  
+  .productInfo {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Enhanced Button Visibility with Glowing and Blink Effects */
+  .viewVideo,
+  .buyNow {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite, blink 1s step-end infinite;
+  }
+  
+  .viewVideo {
+    background: linear-gradient(90deg, #ff4500, #ff8800);
+    color: #fff;
+  }
+  
+  .viewVideo:hover {
+    background: linear-gradient(90deg, #ff8800, #ff4500);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.6);
+  }
+  
+  .buyNow {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+  }
+  
+  .buyNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+  }
+  
+  /* Button Group */
+  .buttonGroup {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  /* Glowing and Blink Animations */
+  @keyframes glow {
+    0% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 69, 0, 0.5); }
+    50% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 69, 0, 0.8); }
+    100% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 69, 0, 0.5); }
+  }
+  
+  @keyframes blink {
+    50% { opacity: 0.8; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .productsTitle {
+      font-size: 2rem;
+    }
+    .productName {
+      font-size: 1.1rem;
+    }
+    .productRate {
+      font-size: 1rem;
+    }
+    .viewVideo,
+    .buyNow {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+    .buttonGroup {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .productsTitle {
+      font-size: 1.5rem;
+    }
+    .productName {
+      font-size: 1rem;
+    }
+    .productRate {
+      font-size: 0.9rem;
+    }
+    .viewVideo,
+    .buyNow {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+    .buttonGroup {
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+  
+  /* Existing styles (e.g., for video page and homepage) remain unchanged */
+
+  /* Existing styles remain unchanged unless specified below */
+
+/* Product Detail Container */
+.productDetailContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* Product Detail Main */
+  .productDetailMain {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+  }
+  
+  /* Product Detail Content */
+  .productDetailContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* Product Image */
+  .productImage {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .productImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Product Info */
+  .productInfo {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding: 20px;
+    background: rgba(28, 28, 28, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Product Name */
+  .productName {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  
+  /* Product Rate */
+  .productRate {
+    font-size: 1.5rem;
+    color: #ff4500;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Product Description */
+  .productDescription {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Product Specs */
+  .productSpecs {
+    margin-bottom: 20px;
+  }
+  
+  .productSpecs h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .productSpecs ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .productSpecs li {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 5px;
+  }
+  
+  /* Product Availability */
+  .productAvailability {
+    font-size: 1rem;
+    color: #ff4500;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  /* Add to Cart Button */
+  .addToCart {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #00ff00, #00cc00);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite, blink 1s step-end infinite;
+  }
+  
+  .addToCart:hover {
+    background: linear-gradient(90deg, #00cc00, #00ff00);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
+  }
+  
+  /* Responsive Design for Product Detail Page */
+  @media (max-width: 768px) {
+    .productDetailContent {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .productImage {
+      min-width: 100%;
+    }
+    .productInfo {
+      min-width: 100%;
+    }
+    .productName {
+      font-size: 2rem;
+    }
+    .productRate {
+      font-size: 1.3rem;
+    }
+    .viewVideo,
+    .buyNow,
+    .addToCart {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .productName {
+      font-size: 1.5rem;
+    }
+    .productRate {
+      font-size: 1.1rem;
+    }
+    .viewVideo,
+    .buyNow,
+    .addToCart {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Existing styles (e.g., for video page, homepage, products page) remain unchanged */
+  /* Existing styles remain unchanged unless specified below */
+
+/* Button Group */
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative; /* Ensure buttons are positioned correctly */
+  }
+  
+  /* Enhanced Button Visibility with Glowing and Blink Effects */
+  .viewVideo,
+  .buyNow {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite, blink 1s step-end infinite;
+    position: relative; /* Ensure button is tappable */
+    z-index: 1; /* Ensure button is above other elements */
+    touch-action: manipulation; /* Improve touch responsiveness */
+  }
+  
+  .viewVideo {
+    background: linear-gradient(90deg, #ff4500, #ff8800);
+    color: #fff;
+  }
+  
+  .viewVideo:hover {
+    background: linear-gradient(90deg, #ff8800, #ff4500);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.6);
+  }
+  
+  .buyNow {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+  }
+  
+  .buyNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+  }
+  
+  /* Ensure no pointer events are blocked */
+  .viewVideo,
+  .buyNow {
+    pointer-events: auto;
+  }
+  
+  /* Existing styles (e.g., for video page, product detail, etc.) remain unchanged */
+
+  /* Import custom fonts directly */
+@font-face {
+    font-family: "Starkiller";
+    src: url("/fonts/Starkiller.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Dancing Script";
+    src: url("/fonts/DancingScript.ttf") format("truetype");
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    padding: 40px 20px 20px; /* Adjusted to push logo down */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(13, 13, 13, 0.95);
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+}
+
+.logoContainer {
+    transition: transform 0.3s ease;
+    animation: focusLogo 2s ease-in-out forwards;
+}
+
+.logoContainer:hover {
+    transform: scale(1.05);
+}
+
+/* Title with Typing Effect */
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gangster {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    white-space: nowrap;
+    border-right: 3px solid #fff;
+    width: 0;
+    animation: typingGangster 2s steps(12) forwards, focusGangster 2s ease-in-out forwards, blink 0.8s infinite;
+}
+
+.bags {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    color: #ff0000;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: signatureBags 1.5s ease-in-out forwards 2.2s;
+}
+
+/* Combined Focus Animation for Logo and Gangster */
+@keyframes focusLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes focusGangster {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+@keyframes typingGangster {
+    from { width: 0; }
+    to { width: 14ch; }
+}
+
+@keyframes signatureBags {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+        width: 0;
+    }
+    50% {
+        opacity: 1;
+        width: 4ch;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        width: 4ch;
+    }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Main */
+.main {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+}
+
+/* Title Container */
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    max-width: 90%;
+    font-style: italic;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+/* Product Showcase */
+.productShowcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+.productCardLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.productCard {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 250px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4);
+}
+
+.productCard:hover img {
+    opacity: 0.9;
+}
+
+.productCard p {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* View Video Button */
+.viewVideo {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+}
+
+.viewVideo:hover {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+}
+
+/* Shop Now Button */
+.shopNow {
+    position: relative;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5);
+    overflow: hidden;
+    width: 90%;
+    max-width: 300px;
+    opacity: 0;
+    animation: fadeInButton 0.5s ease-in forwards 2.2s, blinkButton 1.5s infinite 2.7s, glowPulse 2s infinite 2.7s;
+}
+
+.shopNow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: tapRipple 2s infinite 2.7s;
+}
+
+.shopNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.7);
+    transform: translateY(-2px);
+    animation: none;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1rem;
+    opacity: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+/* Animations */
+@keyframes fadeInMain {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+}
+
+@keyframes fadeInButton {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes tapRipple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    50% {
+        width: 120px;
+        height: 120px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+    }
+}
+
+@keyframes blinkButton {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.7); }
+    100% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+}
+
+/* Enhanced Checkout Styles */
+
+/* Enhanced Checkout Title */
+.enhancedCheckoutTitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Enhanced Checkout Product */
+.enhancedCheckoutProduct {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Enhanced Product Card */
+.enhancedProductCard {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+.enhancedProductCard img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.enhancedProductCard:hover img {
+    transform: scale(1.05);
+}
+
+.enhancedProductInfo {
+    text-align: left;
+}
+
+.enhancedProductName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.enhancedProductRate {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff4500;
+    text-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
+}
+
+/* Enhanced Checkout Form */
+.enhancedCheckoutForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.enhancedFormCard {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Enhanced Form Group */
+.enhancedFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.enhancedFormGroup label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.enhancedFormGroup label[for="email"] {
+    color: #ff4500; /* Orange color for email label */
+}
+
+/* Enhanced Form Input */
+.enhancedFormInput {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.enhancedFormInput:focus {
+    background: #444;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}
+
+/* Enhanced Buy Now Button */
+.enhancedBuyNow {
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4), 0 0 15px rgba(255, 0, 0, 0.6);
+    animation: glowPulse 2s infinite, blink 1s step-end infinite;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+.enhancedBuyNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Button Group */
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+}
+
+/* Enhanced Button Visibility with Glowing and Blink Effects */
+.viewVideo,
+.buyNow {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite, blink 1s step-end infinite;
+    position: relative;
+    z-index: 1;
+    touch-action: manipulation;
+    pointer-events: auto;
+}
+
+.viewVideo {
+    background: linear-gradient(90deg, #ff4500, #ff8800);
+    color: #fff;
+}
+
+.viewVideo:hover {
+    background: linear-gradient(90deg, #ff8800, #ff4500);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.6);
+}
+
+.buyNow {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+}
+
+.buyNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 30px 20px 15px;
+    }
+    .gangster {
+        font-size: 2rem;
+    }
+    .bags {
+        font-size: 1.6rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .productShowcase {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    .productCard {
+        padding: 10px;
+    }
+    .productCard img {
+        max-height: 200px;
+    }
+    .shopNow {
+        padding: 10px 20px;
+        font-size: 1rem;
+        max-width: 250px;
+    }
+    .enhancedCheckoutTitle {
+        font-size: 2rem;
+    }
+    .enhancedProductCard {
+        flex-direction: column;
+        padding: 15px;
+        max-width: 300px;
+    }
+    .enhancedProductCard img {
+        width: 150px;
+        height: 150px;
+    }
+    .enhancedProductName {
+        font-size: 1.3rem;
+    }
+    .enhancedProductRate {
+        font-size: 1.5rem;
+    }
+    .enhancedFormInput {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    .enhancedBuyNow {
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 25px 15px 10px;
+    }
+    .gangster {
+        font-size: 1.5rem;
+    }
+    .bags {
+        font-size: 1.3rem;
+    }
+    .tagline {
+        font-size: 0.9rem;
+    }
+    .productCard p {
+        font-size: 0.9rem;
+    }
+    .shopNow {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+    .enhancedCheckoutTitle {
+        font-size: 1.8rem;
+    }
+    .enhancedProductCard {
+        padding: 10px;
+        max-width: 250px;
+    }
+    .enhancedProductCard img {
+        width: 120px;
+        height: 120px;
+    }
+    .enhancedProductName {
+        font-size: 1.1rem;
+    }
+    .enhancedProductRate {
+        font-size: 1.3rem;
+    }
+    .enhancedFormInput {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    .enhancedBuyNow {
+        padding: 10px 20px;
+        font-size: 1rem;
+        max-width: 250px;
+    }
+}
+
+/* Video Page Container */
+.videoPageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 20px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Video Main */
+.videoMain {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Video Wrapper (Optimized for 9:16 Instagram Reels Ratio) */
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding-top: 177.78%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Product Video (Ensuring 9:16 Fit) */
+.productVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+/* Single Large Buy Now Button with Typing Effect */
+.buyNowButton {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.7);
+    z-index: 10;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 85%;
+    max-width: 450px;
+    opacity: 0.9;
+    animation: typingEffect 3s steps(7) infinite, blinkCaret 0.75s step-end infinite;
+}
+
+.buyNowButton:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.7), 0 0 25px rgba(255, 0, 0, 0.9);
+}
+
+/* Typing Animation */
+@keyframes typingEffect {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blinkCaret {
+    50% { border-right-color: transparent; }
+}
+
+/* Hover Interaction */
+.videoWrapper:hover .buyNowButton {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.videoPageContainer::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 70%);
+    z-index: -1;
+    animation: bgPulse 10s infinite;
+}
+
+@keyframes bgPulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .videoWrapper {
+        max-width: 360px;
+    }
+    .buyNowButton {
+        padding: 15px 30px;
+        font-size: 1.5rem;
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .videoWrapper {
+        max-width: 300px;
+    }
+    .buyNowButton {
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        max-width: 280px;
+    }
+}
+
+/* Products Container */
+.productsContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Products Main */
+.productsMain {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+}
+
+/* Products Title (Orange Color) */
+.productsTitle {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #ff4500;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+}
+
+/* Image Container (Centering Images) */
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imageContainer img {
+    object-fit: contain;
+}
+
+/* Products Grid */
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+/* Product Item */
+.productItem {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+    border-radius: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.productItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.7);
+}
+
+.productInfo {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Product Detail Container */
+.productDetailContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Product Detail Main */
+.productDetailMain {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+}
+
+/* Product Detail Content */
+.productDetailContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Product Image */
+.productImage {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Product Info */
+.productInfo {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding: 20px;
+    background: rgba(28, 28, 28, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Product Name */
+.productName {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Product Rate */
+.productRate {
+    font-size: 1.5rem;
+    color: #ff4500;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Product Description */
+.productDescription {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Product Specs */
+.productSpecs {
+    margin-bottom: 20px;
+}
+
+.productSpecs h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.productSpecs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.productSpecs li {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 5px;
+}
+
+/* Product Availability */
+.productAvailability {
+    font-size: 1rem;
+    color: #ff4500;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Add to Cart Button */
+.addToCart {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #00ff00, #00cc00);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite, blink 1s step-end infinite;
+}
+
+.addToCart:hover {
+    background: linear-gradient(90deg, #00cc00, #00ff00);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
+}
+
+/* Responsive Design for Product Detail Page */
+@media (max-width: 768px) {
+    .productDetailContent {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .productImage {
+        min-width: 100%;
+    }
+    .productInfo {
+        min-width: 100%;
+    }
+    .productName {
+        font-size: 2rem;
+    }
+    .productRate {
+        font-size: 1.3rem;
+    }
+    .viewVideo,
+    .buyNow,
+    .addToCart {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productName {
+        font-size: 1.5rem;
+    }
+    .productRate {
+        font-size: 1.1rem;
+    }
+    .viewVideo,
+    .buyNow,
+    .addToCart {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Glowing and Blink Animations */
+@keyframes glow {
+    0% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 69, 0, 0.5); }
+    50% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 69, 0, 0.8); }
+    100% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 69, 0, 0.5); }
+}
+
+@keyframes blink {
+    50% { opacity: 0.8; }
+}
+
+/* Import custom fonts directly */
+@font-face {
+    font-family: "Starkiller";
+    src: url("/fonts/Starkiller.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Dancing Script";
+    src: url("/fonts/DancingScript.ttf") format("truetype");
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    text-align: center;
+    position: relative; /* For full-screen loader positioning */
+}
+
+/* Header */
+.header {
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(13, 13, 13, 0.95);
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+}
+
+.logoContainer {
+    transition: transform 0.3s ease;
+    animation: focusLogo 2s ease-in-out forwards;
+}
+
+.logoContainer:hover {
+    transform: scale(1.05);
+}
+
+/* Title with Typing Effect */
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gangster {
+    font-family: "Starkiller", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    white-space: nowrap;
+    border-right: 3px solid #fff;
+    width: 0;
+    animation: typingGangster 2s steps(12) forwards, focusGangster 2s ease-in-out forwards, blink 0.8s infinite;
+}
+
+.bags {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    color: #ff0000;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: signatureBags 1.5s ease-in-out forwards 2.2s;
+}
+
+/* Combined Focus Animation for Logo and Gangster */
+@keyframes focusLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes focusGangster {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+@keyframes typingGangster {
+    from { width: 0; }
+    to { width: 14ch; }
+}
+
+@keyframes signatureBags {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+        width: 0;
+    }
+    50% {
+        opacity: 1;
+        width: 4ch;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        width: 4ch;
+    }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Main */
+.main {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInMain 0.5s ease-in forwards 2.2s;
+}
+
+/* Title Container */
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    max-width: 90%;
+    font-style: italic;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+/* Product Showcase */
+.productShowcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards 2.2s;
+}
+
+.productCardLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.productCard {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 250px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4);
+}
+
+.productCard:hover img {
+    opacity: 0.9;
+}
+
+.productCard p {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* View Video Button */
+.viewVideo {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+}
+
+.viewVideo:hover {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+}
+
+/* Shop Now Button */
+.shopNow {
+    position: relative;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5);
+    overflow: hidden;
+    width: 90%;
+    max-width: 300px;
+    opacity: 0;
+    animation: fadeInButton 0.5s ease-in forwards 2.2s, blinkButton 1.5s infinite 2.7s, glowPulse 2s infinite 2.7s;
+}
+
+.shopNow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: tapRipple 2s infinite 2.7s;
+}
+
+.shopNow:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.7);
+    transform: translateY(-2px);
+    animation: none;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Thank You Page Styles */
+.thankYouContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 90%;
+    max-width: 600px;
+    padding: 25px;
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Redirecting Message at the Top */
+.redirectMessage {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.redirectMessage p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meeshoIcon {
+    font-size: 1.6rem;
+}
+
+.meeshoHighlight {
+    color: #ff4500;
+    font-weight: 700;
+}
+
+.timerHighlight {
+    color: #fff;
+    font-weight: 700;
+    background: #ff4500;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.thankYouTitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.thankYouProductCard {
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thankYouProductCard img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
+
+.thankYouProductInfo {
+    text-align: left;
+}
+
+.thankYouProductName {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.thankYouProductRate {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff4500;
+}
+
+/* Full-Screen Loader Overlay */
+.fullScreenLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #ff4500;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loaderText {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Loader Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations (Kept for Other Pages) */
+@keyframes fadeInMain {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+}
+
+@keyframes fadeInButton {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes tapRipple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    50% {
+        width: 120px;
+        height: 120px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+    }
+}
+
+@keyframes blinkButton {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.7); }
+    100% { box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 30px 20px 15px;
+    }
+    .gangster {
+        font-size: 2rem;
+    }
+    .bags {
+        font-size: 1.6rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .productShowcase {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    .productCard {
+        padding: 10px;
+    }
+    .productCard img {
+        max-height: 200px;
+    }
+    .shopNow {
+        padding: 10px 20px;
+        font-size: 1rem;
+        max-width: 250px;
+    }
+    .thankYouContainer {
+        gap: 20px;
+        padding: 20px;
+    }
+    .redirectMessage {
+        padding: 12px 15px;
+    }
+    .redirectMessage p {
+        font-size: 1.2rem;
+    }
+    .meeshoIcon {
+        font-size: 1.4rem;
+    }
+    .thankYouTitle {
+        font-size: 2rem;
+    }
+    .thankYouProductCard {
+        flex-direction: column;
+        padding: 15px;
+        max-width: 350px;
+    }
+    .thankYouProductCard img {
+        width: 160px;
+        height: 160px;
+    }
+    .thankYouProductName {
+        font-size: 1.4rem;
+    }
+    .thankYouProductRate {
+        font-size: 1.6rem;
+    }
+    .loader {
+        width: 50px;
+        height: 50px;
+        border-width: 4px;
+    }
+    .loaderText {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 25px 15px 10px;
+    }
+    .gangster {
+        font-size: 1.5rem;
+    }
+    .bags {
+        font-size: 1.3rem;
+    }
+    .tagline {
+        font-size: 0.9rem;
+    }
+    .productCard p {
+        font-size: 0.9rem;
+    }
+    .shopNow {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+    .thankYouContainer {
+        gap: 15px;
+        padding: 15px;
+    }
+    .redirectMessage {
+        padding: 10px 12px;
+    }
+    .redirectMessage p {
+        font-size: 1.1rem;
+    }
+    .meeshoIcon {
+        font-size: 1.2rem;
+    }
+    .thankYouTitle {
+        font-size: 1.8rem;
+    }
+    .thankYouProductCard {
+        padding: 12px;
+        max-width: 300px;
+    }
+    .thankYouProductCard img {
+        width: 140px;
+        height: 140px;
+    }
+    .thankYouProductName {
+        font-size: 1.2rem;
+    }
+    .thankYouProductRate {
+        font-size: 1.4rem;
+    }
+    .loader {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+    }
+    .loaderText {
+        font-size: 0.9rem;
+    }
+}
+
+/* Enhanced Price Styling */
+.productRateWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.productRateWrapper:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.productRate {
+  font-size: 1.8rem; /* Even larger font size */
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif; /* Premium font */
+  color: #fff; /* White text for contrast */
+  background: linear-gradient(90deg, #ff3366, #ff6600); /* Gradient background */
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+}
+
+.rupeeSymbol {
+  font-size: 2rem;
+  color: #ffd700; /* Gold color */
+  position: relative;
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 25px rgba(255, 215, 0, 0.8), 0 0 35px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+}
+
+.codBadge {
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #28a745; /* Green for COD */
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.confirmationMessage {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.confirmationMessage .productRate {
+  font-size: 1.5rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.videoTitle {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.productVideo {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.instagramVideo {
+  text-align: center;
+}
+
+.videoPlaceholder {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.placeholderImage {
+  border-radius: 8px;
+}
+
+.watchButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff2e63;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.watchButton:hover {
+  background-color: #e02454;
+}
+
+/* Ensure Video.js player is responsive */
+.video-js {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.viewVideo {
+  padding: 0.75rem 1.5rem;
+  background-color: #6b7280;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.viewVideo:hover {
+  background-color: #4b5563;
+}
+
+.fullScreenContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000; /* Black background for full-screen effect */
+}
+
+.fullScreenMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.videoTitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fff; /* White text for visibility on black background */
+  padding: 0 1rem;
+}
+
+.productVideo {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh; /* Limit height to 80% of viewport height to leave space for header/footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 400px; /* Narrower width for vertical videos on larger screens */
+  aspect-ratio: 9 / 16; /* Enforce 9:16 aspect ratio */
+  margin: 0 auto;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.instagramVideo {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoPlaceholder {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.placeholderImage {
+  border-radius: 8px;
+}
+
+.watchButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff2e63;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.watchButton:hover {
+  background-color: #e02454;
+}
+
+/* Ensure Video.js player fits the 9:16 aspect ratio */
+.video-js {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.errorMessage {
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.errorMessage a {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.errorMessage a:hover {
+  color: #005bb5;
+}
+
+/* Buy Now Button Styles */
+.buyNowContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  z-index: 10;
+}
+
+.buyNow {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #0070f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: tapTap 1.5s infinite ease-in-out; /* Tap-tap effect */
+}
+
+/* Typing Animation */
+.typingText {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #fff; /* Cursor effect */
+  animation: typing 2s steps(8, end) forwards, blink 0.5s step-end infinite;
+}
+
+/* Tap-Tap Animation */
+@keyframes tapTap {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Typing Animation Keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+/* Full-screen adjustments for mobile */
+@media (max-width: 768px) {
+  .fullScreenMain {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+  }
+
+  .productVideo {
+    max-height: 100vh; /* Full height on mobile */
+    max-width: 100%;
+  }
+
+  .videoWrapper {
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: 9 / 16;
+  }
+
+  .videoTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .buyNowContainer {
+    padding: 0.5rem;
+  }
+
+  .buyNow {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Existing styles (keep your existing styles, just add the following) */
+
+/* Product Image Gallery */
+.productImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.mainImage {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnailContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border 0.3s ease;
+}
+
+.thumbnail:hover {
+  border: 2px solid #0070f3;
+}
+
+.thumbnailActive {
+  border: 2px solid #0070f3;
+}

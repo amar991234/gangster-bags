@@ -1,0 +1,115 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .header {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .gangster {
+    color: #d32f2f;
+  }
+  
+  .bags {
+    color: #333;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .buyTitle {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .productDetails {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .productDetails h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .priceLabel {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .productRate {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #d32f2f;
+  }
+  
+  .checkoutButton {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkoutButton:hover {
+    background-color: #005bb5;
+  }
+  
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer p {
+    margin: 0;
+    color: #666;
+  }
